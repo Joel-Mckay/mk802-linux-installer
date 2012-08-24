@@ -1,0 +1,66 @@
+    Adata
+        2GB Speedy (MMAGF02GWMCA -NA)
+        16GB SDHC Class 6 (Possibly SD5MY168G0, label with gold <> black gradient)
+    Agfa
+        16GB MicroSDHC class 6 (as written on SD-Adapter, MicroSD card itself no-name? ENAAJK121960)
+    Integral
+        16GB SDHC Class 6 Ultima Pro (SH016GAA2BB)
+        4GB SDHC class 4 (S404G1115) 
+    Kingston
+        8GB/Go SDHC Class 10 - SD10V/8GB Very slow writing images to card and then either won't boot, or boots very slowly
+        16GB SDHC Class 4 (SDC4/16GB17) - Device does not recognize it 
+    Memory2GO
+        4GB SDHC Class 6 (S404G1029) - I/O Errors leading to Kernel Panic on startup. 
+    Panasonic
+        8GB SDHC Class 10 (RP-SDU08GD1K)
+    Patriot
+        8GB SDHC Class 6 (PS8GSDHC10-BC) 
+	8GB SDHC Class 10 (PSF8GSDHC10) 
+    Platinum
+        8GB SDHC Class 8 (O08G840 M3100487 TW) 
+    PNY
+        8GB Optima SDHC 120 HD Class 4 SD-K08G 0928 WF3673
+        32GB SDHC Class 10 Professional (P-SDHC32G10-EF)
+        2GB card SD-M02G 
+    Polaroid
+        16GB SDHC C10 (P-SDHC16GB10-EFPOL) 
+    Reekin
+        4Gb HighSpeed SH4GC6M16MIN9C0812TE 
+    Samsung
+        4GB SDHC Class 4 (MB-SS4G MBSS4GMBDDBA-DD)
+        32GB SDHC Class 10 (MB-SSBGA, MBSSBGVEOBGA-SH)
+    SanDisk
+        2GB SD Extreme III (BE0722702998D)
+        2GB SD (BE0916214253D)
+        2GB Ultra || 15MB/s (BE0828713280D)
+        4GB SDHC Class 2 "Limited Edition" (8H825413279G)
+        4GB SDHC Class 4 (BH1030216016G)
+        4GB SDHC Class 4 (BH1031116016G).
+        4GB SDHC Class 6 Extreme (BH0822411730D)
+        4GB SDHC Class 6 Extreme III (30 MB/s) (BH0822712362G)
+        4GB SDHC Class 10 Extreme (SDSDX-004G-X46) (30 MB/s HD Video) 
+        8GB SDHC Class 6 Ultra (B11201421964G)
+        8GB SDHC Class 6 Ultra (SDSDH-008G-U46 - BI1131222083D)
+        8GB SDHC Class 6 Ultra labelled as 30MB/s (BI1208721965G))
+        8GB SDHC Class 6 Ultra labelled as 30MB/s SDSRH-008G-A11
+        8GB SDHC Class 6 Ultra labelled as 30MB/s SDSDH-008G-T11
+        8GB SDHC Class 6 Ultra I (BI1201221964G) 
+	8GB SDHC Class 6 Extreme (BI1101116253G)
+        8GB SDHC Class 10 Extreme (BI1108716254G)
+        8GB SDHC Class 10 Extreme (BI1201416254G)
+        8GB SDHC Class 10 Extreme (BI1201516254G)
+        8GB SDHC Class 10 Extreme (BI1200916252D/SDSDX-008G-X46)
+	16GB SDHC Class 10 Extreme (30MB/s HD Video) (SDSDX3-016G-X46)
+        16GB SDHC Class 6 Ultra (BL1202021933G)
+        16GB SDHC Class 6 Ultra I (BL1205921933G)
+        32GB SDHC Class 6 (LS2N732GQON03ASP)
+        4GB SDHC Class 6 (S404G1041)
+        4GB SDHC Class 6 (S404G1046) [Barcode: 4 902030 784447]
+
+    Transcend
+        2GB MicroSD (MMAGR02GUECA-MB)
+	32GB MicroSD (TS32GUSDHC4)
+        2GB SD (6451AG 2G O2DS1) 
+    Verbatim
+        16GB SDHC Class 6 (47178)
+        8GB microSD Class 10 (44012)

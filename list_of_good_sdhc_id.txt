@@ -1,0 +1,349 @@
+cd /sys/class/mmc_host/mmc?/mmc?:*
+echo "man:$(cat manfid) oem:$(cat oemid) name:$(cat name) hwrev:$(cat hwrev) fwrev:$(cat fwrev)"
+
+
+mount -t debugfs none /sys/kernel/debug
+Now, you'll see some additional control files in /sys/kernel/debug/mmc0, for instance /sys/kernel/debug/mmc0/ios:
+
+cat /sys/kernel/debug/usb/devices
+T:  Bus=01 Lev=01 Prnt=01 Port=05 Cnt=01 Dev#= 38 Spd=480  MxCh= 0
+D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=14cd ProdID=121c Rev= 5.00
+S:  Manufacturer=Generic
+S:  Product=Mass Storage Device
+S:  SerialNumber=812320100708
+C:* #Ifs= 1 Cfg#= 1 Atr=80 MxPwr=248mA
+I:* If#= 0 Alt= 0 #EPs= 2 Cls=08(stor.) Sub=06 Prot=50 Driver=usb-storage
+E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+
+
+ sudo hwinfo --disk /dev/sdb 
+ 
+31: SCSI 2300.0: 10600 Disk
+  [Created at block.243]
+  UDI: /org/freedesktop/Hal/devices/storage_serial_USB_Mass_Storage_Device_812320100708_0_0
+  Unique ID: MtLc.iAMfSLznGy2
+  Parent ID: WQQk.rHX5uN+34wE
+  SysFS ID: /class/block/sdb
+  SysFS BusID: 35:0:0:0
+  SysFS Device Link: /devices/pci0000:00/0000:00:10.4/usb1/1-6/1-6:1.0/host35/target35:0:0/35:0:0:0
+  Hardware Class: disk
+  Model: "USB Mass Storage Device"
+  Vendor: usb 0x14cd "USB Mass"
+  Device: usb 0x121c "Storage Device"
+  Serial ID: "812320100708"
+  Driver: "usb-storage", "sd"
+  Driver Modules: "usb_storage"
+  Device File: /dev/sdb (/dev/sg3)
+  Device Files: /dev/sdb, /dev/block/8:16, /dev/disk/by-id/usb-USB_Mass_Storage_Device_812320100708-0:0, /dev/disk/by-path/pci-0000:00:10.4-usb-0:6:1.0-scsi-0:0:0:0
+  Device Number: block 8:16-8:31 (char 21:3)
+  Features: Hotpluggable
+  Geometry (Logical): CHS 15271/64/32
+  Size: 31275008 sectors a 512 bytes
+  Speed: 480 Mbps
+  Module Alias: "usb:v14CDp121Cd0500dc00dsc00dp00ic08isc06ip50"
+  Driver Info #0:
+    Driver Status: usb_storage is active
+    Driver Activation Cmd: "modprobe usb_storage"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #18 (USB Controller)
+
+
+
+
+
+
+please merge with http://elinux.org/RPi_Performance#SD_card
+Working SD Cards
+
+    7DAYSHOP.COM
+        8GB Professional SDHC Class 10 (man:0x000027 oem:0x5048 name:SD08G hwrev:0x3 fwrev:0x0) 
+    Adata
+        2GB SD Class 2 Speedy (8B0947 printed on back) This card works with every distro I tried. May be old, may not be the fastest, but is very stable.
+        4GB SDHC Class 4 (BH1109416141G)
+        8GB SDHC Class 2 (MMB3F08GWMCA-GE)
+        8GB SDHC Class 4 (MicroSD w/ adapter)
+        8GB SDHC Class 6 (MMAGR08GUDCA-DB)
+        8GB SDHC Class 10 (AUSDH8GCL10-R)
+        8GB SDHC Class 10 (ASDH8GCL10-R) Tested on 2012-06-18-wheezy-beta.zip
+        8GB SDHC Class 10 (P-SDH8G10-EC from BJ's USA tested on Raspbian)
+        16GB SDHC Class 6
+        16GB SDHC Class 10 (16GSDHC10)
+        16GB SDHC Class 10 (microSD w/ adapter AUSDH16GCL10-RA1)
+        32GB SDHC Class 10 (ASDH32GCL10-R) Tested on wheezy-beta with latest kernel and firmware and raspbian wheezy 
+    AmazonBasics
+        8GB SDHC Class 10 B0058GH0LS
+        16GB SDHC Class 10 B0058GH1IK
+        32GB SDHC Class 10 
+    Apacer
+        8GB microSDHC Class 10 (with adapter)
+        8GB SDHC Class 6 
+    Centon
+        16GB SDHC Class 4 (1447 printed on back) 
+    CnMemory
+        8GB SDHC Class 4 (Silver/Black label says 'High Capacity Card') 84209_8GB_SDHC, bought from Maplins. No error messages seen, but operation is much slower than with a SanDisk 4GB Class 4 card. 
+    Dane-Elec
+        16GB SDHC Class 4
+        16GB Pro 200X Class 10 DEMS16GB2683ENBA 
+    Dikom
+        16GB SDHC Class 10 (serial 207H3MD016IBSD) 
+    Duracell
+        4GB SDHC Class 4
+        16GB SDHC Class 10 (labelled Pro Photo 200x)
+        32GB SDHC Class 10 (man:0x00001d oem:0x4144 name:SD hwrev:0x1 fwrev:0x0) (~4.6MB/s read, ~4.4MB/s write on debian6-19-04-2012, following RPi_Performance#SD_card) 
+    Emtec
+        2GB SD man:0x000027 oem:0x5048 name:SD02G hwrev:0x2 fwrev:0x0
+        4GB SDHC Class 4 (EKMSD4G60XHCN)
+        16GB SDHC Class 10 (EKMSD16G150XHC) (less than half as fast as Sandisk 16gb Class 10) 
+    Extrememory
+        16GB SDHC Class 10 (man:0x000012 oem:0x3456 name:F0F0F hwrev:0x1 fwrev:0x0)
+        32GB SDHC Class 10 (man:0x000003 oem:0x5344 name:SMI hwrev:0x1 fwrev:0x0) 
+    Fugi
+        32GB SDHC Class 10 (P10NM00580A) (man:0x000073 oem:0x4247 name:NCard hwrev:0x1 fwrev:0x0) 
+    Hama
+        2GB SD Class 2
+        8GB SDHC High Speed Pro Class 6 
+    Hema (Dutch dept. store)
+        4GB
+        8GB SDHC Class 4 
+    Goodram
+        8GB microSDHC Class 4
+        16GB microSDHC Class 4 (SDU16GHCAGRR10)
+        16GB SDHC Class 10 
+    HP
+        8GB SDHC Class 4 (doesn't reboot during first time startup process, but restart again and fine after that).
+        32GB SDHC Class 10 
+    ICIDU
+        4GB SDHC Class 10 (also had no issues)
+        16GB SDHC Class 10 (image write had issues, might be my inexperience. It boots & shows Xserver)
+        32GB SDHC Class 10 (had no issues whatsoever, the comment above might be a dud.)
+        8GB microSDHC Class 10
+        16GB microSDHC Class 10 (20MB/sec)
+        32GB microSDHC Class 10 (20MB/sec) 
+    Integral
+        4GB SDHC Ultima Pro Class 10
+        8GB SDHC Ultima Pro Class 6 (Works - initial error -110 but boots within 5 seconds with no further errors or issues)
+        8GB SDHC Ultima Pro Class 10 (20MB/s) (Works - initial error -110 but boots within 5 seconds with no further errors or issues)
+        16GB SDHC Ultima Pro Class 6
+        16GB SDHC Class 10 Ultima Pro (20MB/s) 
+    Joyflash
+        16GB SDHC Class 10 (LTSD1112016GB) 
+    Kingmax
+        4GB SDHC Class 2
+        4GB microSDHC Class 4 (KM04GMCSDHC4) won`t reboot when it`s hot
+        8GB microSDHC Class 4 (KM08GMCSDHC41A) won`t reboot when it`s hot 
+    Kingston
+        2GB SD
+        2GB microSD (N0185-002.A00LF) + Adapter (File system .img written via Transcend microSDHC "USB stick-like" adapter - P3-102510)
+        4GB microSD Class 4
+        4GB SDHC Class 4 (SD4/4GB)
+        8GB SDHC Class 4 (SD4/8GB) (does not work with current build of raspbmc)
+        8GB microSDHC Class 4 (SDC4/8GB)
+        8GB SDHC Class 6 (SD6/8GB) (errors on boot, boots Debian ok, does not work with raspbmc rc2)
+        8GB SDHC Class 10 (SD10G2/8GB, SD10V/8GB, ultimateX 100X, ultimateX 120X)
+        16GB SDHC Class 4 (SD4/16GB)
+        16GB microSDHC Class 10 (SDC10/16GB)
+        16GB SDHC Class 10 (SD10G2/16GB, ultimateX 100X)
+        16GB SDHC Class 10 (SD4/16GBET)
+        32GB SDHC Class 10 (SD10V)
+        32GB SDHC Class 10 (SD10G2/32GB, ultimateX 100X) 
+    Kodak
+        4GB SDHC Class 2
+        8GB SDHC Class 4 
+    Kruidvat
+        8GB SDHC Class 4 
+    Lexar
+        4GB SDHC Class 4 (Boots consistently and no error messages in log after 1/2 hour use ) (works with Raspbmc)
+        4GB SDHC Class 6 Platinum II (from Microcenter)
+        8GB SDHC Class 4
+        8GB SDHC Class 6 Premium Series
+        8GB SDHC Class 6 Platinum II
+        16GB SDHC Class 6 Platinum II
+        32GB microSDHC HIGH-SPEED Class 10 (from Amazon)
+        128GB SDXC UHS-I Card LSD128CTBNA400 (from Amazon) 
+    Master
+        16GB SDHC Class 10 [man:0x000003 oem:0x5344 name:SMI hwrev:0x1 fwrev:0x0] 
+    Medion
+        8GB Class 4 SDHC UK sourced (Aldi) 
+    Microcenter Brand (sold in bins at checkout)
+        8GB SDHC Class 4
+        8GB SDHC Class 10
+        16GB SDHC Class 10 
+    Mushkin
+        16GB SDHC Class 10 (MKNSDHCU1-16GB) [32]
+        32GB SDHC Class 10 (MKNSDHCC10-32GB) [33] 
+    Mustang
+        8GB SDHC Class 10 
+    MyMemory
+        8GB SDHC Class 10 (MYMESDH8G10) MyMemory 8GB class 10 (Latest batch not working)
+        16GB SDHC Class 10 (MYMESDH16G10) [34] 
+    OCZ
+        8GB SDHC Class 6 Gold Series (08110596-8GB-6) tested with Debian Squeeze (official Raspberry Pi distribution debian6-19-04-2012.zip) 
+    Optima
+        8GB SDHC Class 10 (Pro-Speed) 
+    Panasonic
+        4GB SDHC Class 4
+        4GB SDHC Class 10 UHS-I (~11.2MB/s read, ~6.2MB/s write, following RPi_Performance#SD_card)
+        8GB SDHC Class 2 (~11.1MB/s read, ~9.7MB/s write, following RPi_Performance#SD_card)
+        8GB SDHC Class 6 (~4.8MB/s read, ~4.4MB/s write, following RPi_Performance#SD_card) 
+    Patriot
+        8GB SDHC Class 6 (PSF8GSDHC10-PC)
+        8GB SDHC Class 10 LX Series (PSF8GSDHC10-PC1)
+        16GB SDHC Class 10 (PSF16GMCSDHC10)
+        16GB SDHC Class 10 LX Series (PSF16GSDHC10) (19.3MB/s read, 9.3MB/s write)
+        16GB microSDHC Class 10 (PSF16GMSHC10) (requires recent kernel update for boot)
+        32GB SDHC Class 10 (PSF32GSDHC10)
+        32GB SDHC Class 10 UHS-1 (PEF32GSDHC10U1) (20.4MB/s read, 12.1MB/s write) 
+    Peak
+        4GB microSDHC Class 4 (MMBTR04GUBCA-ME) tested with Arch 
+    Philips
+        8GB SDHC Class 4 (FM08SD35B) 
+    Platinum
+        4GB SDHC Class 6
+        8GB SDHC Class 6 (man:0x00006f oem:0x0000 name:SMI hwrev:0x1 fwrev:0x0)
+        64GB SDCX Class 10 
+    Play.com
+        4GB SDHC Class 6 (S4E3CD04GEFAA 0907090121106) 
+    PNY
+        4GB SDHC Class 4
+        4GB SDHC Class 4 Optima (SD-K04G 0834TT1297Y)
+        4GB SDHC Class 4. Micro SD Card with adapter.
+        8GB SDHC Class 6
+        8GB SDHC Class 10. Micro SD card with adapter.
+        16GB SDHC Class 4
+        16GB SDHC Class 10 (P-SDHC16G10-GE)
+            See the note for P-SDHC16G10-EF. Works with Wheezy, does not work with Squeeze, Arch, or Fedora Remix. 
+        16GB SDHC Class 10 (P-SDHC16G10-EF)
+            Works with Debian Wheezy
+            Does not work with Debian Squeeze (debian6-19-04-2012: mmc0: timeout waiting for hardware interrupt).
+            Does not work with Arch Linux Arm (archlinuxarm-29-04-2012: no video is displayed, solid red power light, tiny green light) 
+        16GB SDHC Class 10 Pro-Elite (P-SDH16U1-30-GE). Works with raspbmc, haven't tested others. 
+    pqi
+        8GB SDHC Class 6
+            Works with official debian6-19-04-2012 
+    PRETEC
+        8GB SDHC Class 10 (8DK52-122ME) 
+    Samsung
+        4GB SDHC
+        8GB SDHC Class 6 (MB-SS8GAEU)
+        8GB SDHC Class 10 (MB-MP8GA, MB-SP8GA/EU, MB-SP8GA/AM)
+        16GB SDHC Class 6 (MB-SSAGAEU)
+        16GB SDHC Class 10 (MB-SPAGA aka MB-SPAGAEU)
+        32GB SDHC Class 10 (MB-SSBGA, MBSSBGVEOBGA-SH) fine with Debian Wheezy, but does not work with Debian Squeeze (debian6-19-04-2012: mmc0: timeout waiting for hardware interrupt). 
+    SanDisk
+        2GB SD, white "SanDisk for Wii" branded, no class mentioned
+        2GB SD (with a circle 2 --probably class 2), writes at 3.5 Mb/s
+        2GB SD Class 2 (BE0816113150D)
+        2GB SD Class 4 Ultra (15MB/s)
+        2GB SD Class 4 Ultra II
+        2GB SD Ultra II (BE0719111366D)
+        2GB SD Extreme III (BE0715105083B)
+        2GB SD Extreme III (BE0804212046D) - 20MB/s - Class 6
+        4GB SDHC Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        4GB SDHC Class 4 (SDSDB-004G-B35)
+        4GB SDHC Class 4 (SDSDB-004G-BT35). Confirmed working with stock debian6-19-04-2012.img
+        4GB SDHC Class 4 (BH1210821913G)
+        4GB SDHC Class 4 (SDSDH2-004G-AC11, BH1127216239D) Costco 2-pack, booting Wheezy 2012-07-15
+        4GB SDHC Class 4 Ultra (SDSDH-004G-U46) won`t reboot when it`s hot
+        4GB SDHC Class 4 Ultra II
+        4GB SDHC Class 6 Ultra (30MB/s BH1200421822D)
+        4GB SDHC Class 6 Ultra (SDSDH-004G-U46 - BH1136121837G, BH1130521822D)
+        4GB SDHC Class 10 Extreme (BH10297143382G)
+        8GB SDHC Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        8GB SDHC Class 4 (writes at ~1.5MB/s)
+        8GB SDHC Class 4 Ultra labelled as 15MB/s (BI1024716014G)
+        8GB SDHC Class 6 Ultra
+        8GB SDHC Class 6 micro - MMAGR08GUDCA-DB
+            also SDSDH-008G-U46 - BI1131222083D see update from andrew.blake
+            except SDSRH-008G-A11 could be problematic, see below 
+        8GB SDHC Class 6 Ultra labelled as 20MB/s (BI11321422083D)
+        8GB SDHC-I Class 6 Ultra labelled as 30MB/s (SDSDH2-008G-AC11)
+            requires updated Squeeze or Wheezy beta 
+        8GB SDHC Class 10 Extreme (BI11017514367G)
+        8GB SDHC Class 10 Extreme (B11209116254G) - Managed to get it working with raspbian R3 rpi_pisces_r3.zip however does not work with official squeeze nor Arch linux.
+        8GB SDHC Class 10 Extreme (30MB/s HD Video) - working with new bootcode.bin. Confirmed on 2012-07-10 for Debian Squeeze 2012-04-19 and Arch Linux 2012-06-13 images (BI1130916254G).
+        8GB SDHC Class 10 Ultra(30MB/s) (SDSDU-008G-U46) - Works with stock debian6-19-04-2012 or raspbian images but not with OpenELEC r11212 (works with OpenELEC r11493)
+        8GB SDHC Class 10 Extreme Pro (95MB/s UHS-I) (SDSDXPA-008G-X46) - Works with stock 2012-07-15-wheezy-raspbian
+        16GB SDHC Class 4
+        16GB SDHC Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        16GB SDGC Class 4 (SDSDB-016G-B35) - working with bootcode.bin. Confirmed on 2012-07-15 for Debian Squeeze 2012-04-19
+        16GB SDHC Class 6 Ultra (30MB/s) (BL1133921933G) - Work with OpenELEC r11324
+        16GB SDHC Class 10 Ultra(30MB/s) (SDSDU-016G-U46) - Work with stock debian6-19-04-2012 image. Gave Kernel Panic with stock debian6-19-04-2012 image. Worked fine with Wheezy image.
+        16GB SDHC Class 10 Extreme (30MB/s HD Video) (SDSDX3-016G-X46) - Works with 2012-06-18-wheezy-beta.img and updated firmware (tested 2012-07-02)
+        32GB SDHC Class 10 Ultra (30MB/s) - Works with stock debian6-19-04-2012 image
+        16GB SDHC Class 10 Extreme (45MB/s U1) (BL1203322025G) - Doesn't work with stock debian6-19-04-2012 image, but does work with freshly compiled kernel
+        16GB SDHC Class 10 Extreme Pro (95MB/s UHS-I) (SDSDXPA-016G-A75) - Doesn't work with stock debian6-19-04-2012 image, but does work with freshly compiled kernel
+        32GB SDHC Class 4
+        32GB SDHC Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        32GB SDHC Class 6
+        32GB SDHC Class 10 Extreme (45 MB/s UHS-I) (SDSDX-032G-X46) - works with arch-04-29-image and latest firmware (booting problems without firmware update)
+        64GB SDXC Class 10 Extreme (45 MB/s UHS-I) (SDSDX-064G-X46) - works with 2012-07-15-wheezy-raspbian
+        4GB microSDHC Class 2
+        4GB microSDHC Class 4
+        8GB microSDHC Class 2
+        8GB microSDHC Class 4
+        8GB microSDHC Class 6 Mobile Ultra (SDSDQY-008G-U46A) working with the latest firmware, won`t reboot when it`s hot
+        32GB microSDHC Class 4 (SDSDQM-032G-B35)
+        64GB microSDXC Class 6 Mobile Ultra (SDSDQY-064G-A11A) (boots up much more consistently with latest firmware) 
+    Silicon Power
+        4GB microSDHC Class 6 (SP004GBSTH006V10-SP)
+        8GB microSDHC Class 10 (S608G1202)
+        16GB microSDHC Class 10 (SP016GBSDH010V10) 
+    Sony
+        4GB SDHC Class 4 (SF-4B4) (Write 6MB/s, Read 20MB/s)
+        4GB SDHC Class 4 (SF-4N4)
+        8GB SDHC Class 4 (Write 11.8MB/s, Read 17.4MB/s)
+        32GB SDHC Class 10 (SF-32NX/TQ) (Max read speed of ~94MB/s, min write speed of ~10MB/s) - Works with archlinuxarm-29-04-2012 dd image with latest firmware update (as of 10-06-2012) 
+    Strontium
+        8GB SDHC Class 10 (SD-T08G 1045 US6923 G (White Shell - SKU 8 886450 703492)) 
+    Super Talent
+        32GB Secure Digital High Capacity SDHC Card (Class 10), Model SDHC32-C10 SKU: 116-557-001 (works with Raspbmc RC4 and 2012-07-15-wheezy-raspbian)) 
+    TakeMS
+        4GB microSDHC Class 4 (with adapter) Micro SDHC Class 4 + 1 Adapter(Order No.88662) 
+    TDK
+        4GB SDHC Class 4 (1008WW5261B)
+        4GB SDHC Class 4 (80-56-10275-004G,Debian works BUT mmc0 errors when booting Fedora)
+        4GB microSDHC Class 4 (80-56-10301-004G)
+        4GB SDHC Class 6 (S404G1113) - Works with Debian Wheezy (2012-06-18 beta), not tried latest OpenELEC yet.
+        8GB SDHC Class 10 - Works with Raspbian 2012-07-15
+        Sandisk 64GB Class 10 Ultra SDXC UHS-I FFP (3A114807) 
+
+    Toshiba
+        8GB mircoSDHC SD-C08GJ(BL3A 
+    Transcend
+        4GB SDHC Class 4 - we've found these to work without any errors and offer reasonable performance
+        4GB SDHC Class 4 (TS4GSDHC4 - BH1130821915G)
+        4GB SDHC Class 6 (TS4GSDHC6) - no problems. (does not work with Raspbmc as of 6/1/12)
+        4GB SDHC Class 10 (TS4GSDHC10E)
+        8GB SDHC Class 4 (TS8GSDHC4) (man:0x000003 oem:0x5344 name:SD08G hwrev:0x8 fwrev:0x0) - works with both Debian "squeezy" and Raspbian "wheezy" distributions.
+        8GB SDHC Class 6 (~5.8 MB/s read/write following RPi_Performance#SD_card)
+        8GB SDHC Class 6 (TS8GSDHC6-P2 - MMBFG08GWACA-M6)
+        8GB SDHC Class 10 (TS8GSDHC10) Transcend 8G class 10
+        16GB SDHC Class 6 (TS16GSDHC6)
+        16GB SDHC Class 10 (TS16GSDHC10)(TS16GSDHC10E)
+        32GB SDHC Class 10 (TS32GSDHC10)(TS32GSDHC10E)
+        64GB SDXC Class 10 (TS64GSDXC10) 
+    Verbatim
+        8GB SDHC Class 10 (43961)
+        16GB SDHC Class 10 (43962)
+        32GB SDHC Class 6 (44032) 
+
+    Traveler
+        4GB High Speed Memory Card - no class mentioned. No problems. Tested with Raspbian. 
+
+    TrendingUK
+        Sandisk 4GB Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        Sandisk 8GB Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK )
+        Sandisk 16GB Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK
+        Sandisk 32GB Class 4 - Preinstalled with Raspbian Wheezy Linux. (from TrendingUK ) 
+
+    Veho (http://www.veho-uk.com)
+        8Gb "Ultra Fast" Class 6. (man:0x00001b oem:0x534d name:00000 hwrev:0x1 fwrev:0x0) 7.8Mb/s. Slow but tested with Arch Linux. 
+
+    W Photo (Walgreens photo)
+        1GB SD memory card. Works with raspbmc, have not tested others.
+        2GB SD memory card. Works with raspbian, not tested with others. 
+
+
+
